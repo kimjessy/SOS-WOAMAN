@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início do Jogo</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <nav class="navigation">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="episodeo.html">episódios</a></li>
+            <li><a href="">Contato</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1>Bem-vindo ao Jogo SOS WOMAN</h1>
+        <button id="start-button" class="choice-button">Iniciar Jogo (Espaço)</button>
+        
+        <!-- Adicionando o elemento de vídeo -->
+        <video id="game-video" width="600" height="400" controls style="display: none;">
+            <source src="sos woman.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+    </div>
+
+    <!-- Adiciona o elemento de áudio -->
+    <audio id="instruction-audio" src="Text inicio.wav" autoplay></audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const startButton = document.getElementById('start-button');
+            const instructionAudio = document.getElementById('instruction-audio');
+            const gameVideo = document.getElementById('game-video');
+
+            function startGame() {
+                // Esconde o botão e o áudio
+                startButton.style.display = 'none';
+                instructionAudio.pause();
+                
+                // Mostra e começa a reprodução do vídeo
+                gameVideo.style.display = 'block';
+                gameVideo.play();
+            }
+
+            startButton.addEventListener('click', startGame);
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === ' ') {
+                    startGame();
+                }
+            });
+
+            // Repete o áudio quando terminar
+            instructionAudio.addEventListener('ended', () => {
+                instructionAudio.currentTime = 0; // Reinicia o áudio
+                instructionAudio.play(); // Reproduz o áudio novamente
+            });
+        });
+    </script>
+</body>
+</html>
+
