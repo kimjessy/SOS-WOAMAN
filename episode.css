@@ -8,7 +8,6 @@ body {
     height: 100vh;
 }
 
-
 .container {
     text-align: center;
     background: #f0e3e3;
@@ -17,20 +16,17 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-
 h1 {
     margin-bottom: 20px;
     color: #df334faf;
     font-size: 2em;
 }
 
-
 .episode-buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
 }
-
 
 .episode-button {
     padding: 15px 30px;
@@ -43,25 +39,16 @@ h1 {
     color: hsl(210, 100%, 100%);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, transform 0.3s;
-
-
-
-
 }
-
 
 .episode-button:hover {
     background-color: #ffffff;
     transform: translateY(-3px);
 }
 
-
 .episode-button:active {
     transform: translateY(0);
 }
-
-
-
 
 .navigation {
     background-color:#c40522; /* Rosa */
@@ -72,7 +59,6 @@ h1 {
     top: 20px; /* Afasta 20px do topo */
 }
 
-
 .navigation ul {
     list-style-type: none;
     padding: 0;
@@ -80,16 +66,13 @@ h1 {
     display: flex;
 }
 
-
 .navigation ul li {
     margin-right: 10px;
 }
 
-
 .navigation ul li:last-child {
     margin-right: 0;
 }
-
 
 .navigation ul li a {
     text-decoration: none;
@@ -101,13 +84,62 @@ h1 {
     transition: background-color 0.3s;
 }
 
-
 .navigation ul li a:hover {
     background-color: #ff0202; /* Rosa mais escuro */
 }
 
+/* Estilos para dispositivos móveis (telefones) */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+    }
 
+    .container {
+        padding: 20px;
+    }
 
+    .episode-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
 
+    .episode-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .navigation ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navigation ul li {
+        margin: 5px 0;
+    }
+}
+
+/* Estilos para tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .container {
+        padding: 25px;
+    }
+
+    .episode-button {
+        padding: 12px 25px;
+        font-size: 17px;
+    }
+
+    .navigation ul {
+        justify-content: space-around;
+    }
+
+    .navigation ul li {
+        margin-right: 8px;
+    }
+}
 
 
