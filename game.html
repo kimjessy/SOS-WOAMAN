@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo com Narração</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f8f8ff; /* Azul claro */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 0 15px; /* Adiciona um pequeno padding nas laterais */
+        }
+
+        .navigation {
+            background-color: #ae0707; /* Rosa claro */
+            color: #ffffff;
+            padding: 15px; /* Ajusta o padding para um espaço confortável */
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px auto; /* Espaçamento em cima e embaixo, centralizado horizontalmente */
+            width: calc(100% - 40px); /* A barra de navegação vai ocupar 100% da largura, menos o padding */
+            max-width: 800px; /* Limita a largura máxima para telas maiores */
+            display: flex;
+            justify-content: center;
+        }
+
+        .navigation ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Centraliza os itens da lista horizontalmente */
+        }
+
+        .navigation ul li {
+            margin-right: 15px; /* Espaço entre os itens */
+        }
+
+        .navigation ul li:last-child {
+            margin-right: 0;
+        }
+
+        .navigation ul li a {
+            text-decoration: none;
+            color: #fff; /* Branco */
+            font-weight: bold;
+            font-size: 20px; /* Tamanho da fonte aumentado */
+            padding: 10px 20px; /* Aumenta o padding para botões maiores */
+            border-radius: 12px;
+            transition: background-color 0.3s, transform 0.3s; /* Adiciona animação de transformação */
+        }
+
+        .navigation ul li a:hover {
+            background-color: #ff1414; /* Rosa mais escuro */
+            transform: scale(1.1); /* Efeito de aumento ao passar o mouse */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            max-width: 600px; /* Limita a largura máxima */
+            background: #ffffff; /* Branco */
+            padding: 40px; /* Reduz o padding */
+            border-radius: 15px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+            margin-top: 40px; /* Adiciona um espaçamento adequado para evitar a sobreposição com a navegação */
+            text-align: center; /* Centraliza o texto */
+        }
+
+        .image-container {
+            margin-bottom: 30px; /* Adiciona espaço entre a imagem e o texto da narração */
+        }
+
+        #character-image {
+            width: 100%;
+            max-width: 300px; /* Ajusta o tamanho máximo da imagem do personagem */
+            height: auto;
+            border-radius: 15px; /* Deixa a imagem com bordas arredondadas */
+            border: 5px solid #000000; /* Adiciona borda rosa à imagem */
+        }
+
+       
+
+        .narration-container {
+    width: 100%; /* Ocupa toda a largura disponível */
+    max-width: 600px; /* Limita a largura máxima da caixa */
+    text-align: justify; /* Justifica o texto */
+    margin: 0 auto; /* Centraliza a caixa horizontalmente */
+}
+
+       
+        /* Animação da máquina de escrever */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: black; }
+        }
+
+        .choice-button {
+            background-color: #af0909; /* Rosa claro botao ant */
+            color: #3a3434;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 18px; /* Tamanho da fonte */
+            cursor: pointer;
+            margin: 10px 0; /* Espaço entre os botões de escolha */
+            transition: background-color 0.3s, transform 0.3s; /* Animação de transformação */
+        }
+
+        .choice-button:hover {
+            background-color: #9b0606; /* Rosa mais escuro ao passar o mouse */
+            transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                margin-top: 60px; /* Ajusta o espaço para a barra de navegação em telas menores */
+            }
+
+            .navigation {
+                width: calc(100% - 30px); /* Ajusta a largura em telas menores */
+                margin: 0 15px; /* Ajusta a margem nas laterais em telas menores */
+            }
+        }
+
+
+
+    
+        .typewriter {
+    overflow: hidden;
+    white-space: normal; /* Permite a quebra de linha automática */
+    border-right: 4px solid;
+    animation: blink-caret 0.75s step-end infinite;
+    display: inline-block;
+    width: auto; /* Largura automática conforme o texto aumenta */
+    max-width: 100%; /* Impede que o texto ultrapasse a largura do contêiner */
+    text-align: left; /* Alinha o texto à esquerda (opcional) */
+    word-wrap: break-word; /* Garante que as palavras longas sejam quebradas */
+    box-sizing: border-box; /* Inclui o padding e border dentro da largura total */
+    padding-right: 10px; /* Espaço à direita para evitar sobreposição com o cursor de digitação */
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+
+    </style>
+</head>
+<body>
+    <nav class="navigation">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="episodeo.html">Episódios</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="image-container">
+            <img id="character-image" src="imagem-personagem.jpg" alt="Imagem do Personagem">
+        </div>
+        <div class="narration-container">
+            <p id="narration-text" class="typewriter"></p>
+            <div class="choices" id="choices">
+                <!-- Botões de escolha serão adicionados dinamicamente -->
+            </div>
+        </div>
+    </div>
+
+
+    
+    
+
+    <audio id="background-audio" src="seu-audio.mp3" preload="auto"></audio>
+
+    <script src="script2.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolhas de Episódio</title>
+    <link rel="stylesheet" href="episode.css">
+</head>
+<body>
+
+    <nav class="navigation">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="episodeo.html">episódios</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Escolha um Episódio</h1>
+        <div class="episode-buttons">
+            <button class="episode-button" data-episode="1" data-key="1">Ep1 O mar de flores.(1)</button>
+            <button class="episode-button" data-episode="2" data-key="2">Episódio 2 (2)</button>
+            <button class="episode-button" data-episode="3" data-key="3">Episódio 3 (3)</button>
+            <button class="episode-button" data-episode="4" data-key="4">Episódio 4 (4)</button>
+            <button class="episode-button" data-episode="5" data-key="5">Episódio 5 (5)</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- Adiciona o elemento de áudio -->
+<audio id="Text to Speech.wav" src="Text to Speech.wav" autoplay></audio>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const episodeButtons = document.querySelectorAll('.episode-button');
+            const episodeInstructionAudio = document.getElementById('episode-instruction-audio');
+
+        
+            
+            episodeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+    const episodeNumber = button.getAttribute('data-episode');
+    button.addEventListener('click', () => {
+    const episodeNumber = button.getAttribute('data-episode');
+
+    switch (episodeNumber) {
+        case '1':
+            window.location.href = 'game.html';
+            break;
+        case '2':
+            window.location.href = 'ep2.html';
+            break;
+        case '3':
+            window.location.href = 'ep3.html';
+            break;
+        case '4':
+            window.location.href = 'ep4.html';
+            break;
+        case '5':
+            window.location.href = 'ep5.html';
+            break;
+        case '6':
+            window.location.href = 'ep6.html';
+            break;
+
+        default:
+            window.location.href = `game.html?episode=${episodeNumber}`;
+            break;
+    }
+});
+
+    
+});
+
+            });
+
+
+            document.addEventListener('keydown', (event) => {
+                const button = Array.from(episodeButtons).find(button => button.dataset.key === event.key);
+                if (button) {
+                    const episodeNumber = button.getAttribute('data-episode');
+                    window.location.href = `game.html?episode=${episodeNumber}`;
+                }
+            });
+        });
+    
+
+    </script>
+</body>
+</html>

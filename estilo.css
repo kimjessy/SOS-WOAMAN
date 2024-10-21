@@ -1,0 +1,170 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #1f1d1de8; /* Azul claro */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    position: relative; /* Adiciona posição relativa ao corpo */
+}
+
+
+.navigation {
+    background-color:#f82646; /* Rosa */
+    color: #ff0000;
+    padding: 20px 20px; /* Ajusta o padding para mais espaço */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: absolute; /* Posição absoluta em relação ao corpo */
+    top: 50px; /* Afasta 20px do topo */
+    margin-top: auto;      
+    width:500px - 30px; /* Barra de navegação ocupa toda a largura, menos padding */
+    z-index: 2; /* Coloca a barra de navegação acima do conteúdo */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo da navegação */
+}
+
+
+.navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+
+.navigation ul li {
+    margin-right: 10px;
+}
+
+
+.navigation ul li:last-child {
+    margin-right: 0;
+}
+
+
+.navigation ul li a {
+    text-decoration: none;
+    color: #000000; /* Branco */
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+
+.navigation ul li a:hover {
+    background-color: #a05d5d; /* Rosa mais escuro */
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 600px; /* Limita a largura máxima */
+    background: #161414; /* Branco */
+    padding: 80px;
+    border-radius: 15px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Coloca a área de conteúdo acima da navegação */
+    position: relative; /* Adiciona posição relativa à área de conteúdo */
+    margin-top: 200px; /* Espaço para a barra de navegação */
+    text-align: center; /* Centraliza o texto */
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Espaço entre o título e o botão */
+}
+
+
+.choice-button, .episode-button {
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #680514; /* Vinho */
+    color: #5a0bec; /* Branco */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+   
+}
+
+
+.choice-button:hover, .episode-button:hover {
+    background-color: #660606; /* Vermelho escuro */
+    transform: translateY(-3px);
+}
+
+
+.choice-button:active, .episode-button:active {
+    transform: translateY(0);
+}
+
+
+
+    
+   
+
+
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin-top: 80px; /* Ajusta o espaço para a barra de navegação em telas menores */
+    }
+
+
+    .navigation {
+        width: calc(100% - 20px); /* Ajusta a largura em telas menores */
+        margin: 0 10px; /* Ajusta a margem em telas menores */
+    }
+}
+
+/* Botões de escolha serão ocultados inicialmente */
+.button-container {
+    display: none; /* Oculta os botões inicialmente */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.choice-button, .episode-button {
+    padding: 15px 30px;
+    margin:8px ;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #680514;
+    color: #04c214;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
