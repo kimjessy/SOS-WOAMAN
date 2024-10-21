@@ -18,7 +18,7 @@ body {
     box-shadow: 0 2px 5px rgb(255, 255, 255);
     position: absolute;
     top: 50px;
-    width: calc(100% - 40px); /* Barra de navegação se adapta a tela com margem de 20px */
+    width: calc(100% - 40px); /* Barra de navegação se adapta à tela com margem de 20px */
     max-width: 500px; /* Largura máxima para não expandir demais */
     z-index: 2; /* Coloca a barra de navegação acima do conteúdo */
     display: flex;
