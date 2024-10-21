@@ -1,26 +1,27 @@
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-color: #1f1d1de8; /* Azul escuro */
+    background-color: #1f1d1de8;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
     text-align: center;
-    position: relative; /* Adiciona posição relativa ao corpo */
+    position: relative;
 }
 
 .navigation {
-    background-color:#f82646; /* Rosa */
+    background-color: #f82646;
     color: #ff0000;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgb(255, 255, 255);
     position: absolute;
     top: 50px;
-    width: calc(100% - 40px); /* Barra de navegação se adapta à tela com margem de 20px */
-    max-width: 500px; /* Largura máxima para não expandir demais */
-    z-index: 2; /* Coloca a barra de navegação acima do conteúdo */
+    margin-top: auto;
+    width: calc(100% - 40px); /* Ajusta para ficar mais flexível */
+    max-width: 500px;
+    z-index: 2;
     display: flex;
     justify-content: center;
 }
@@ -30,8 +31,6 @@ body {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: space-around; /* Distribui os itens uniformemente */
-    width: 100%; /* Ocupa toda a largura do elemento pai */
 }
 
 .navigation ul li {
@@ -44,7 +43,7 @@ body {
 
 .navigation ul li a {
     text-decoration: none;
-    color: #000000; /* Preto */
+    color: #000000;
     font-weight: bold;
     font-size: 18px;
     padding: 8px 15px;
@@ -53,7 +52,7 @@ body {
 }
 
 .navigation ul li a:hover {
-    background-color: #a05d5d; /* Rosa mais escuro */
+    background-color: #a05d5d;
 }
 
 .container {
@@ -61,39 +60,39 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90%; /* Adapta a largura para telas menores */
-    max-width: 600px; /* Limita a largura máxima */
-    background: #ffffff; /* Branco */
-    padding: 50px; /* Reduz o padding para telas menores */
+    width: 80%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 3rem;
     border-radius: 15px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
-    z-index: 1; /* Coloca a área de conteúdo acima da navegação */
-    position: relative; /* Adiciona posição relativa à área de conteúdo */
-    margin-top: 150px; /* Ajusta o espaço da navegação */
-    text-align: center; /* Centraliza o texto */
+    z-index: 1;
+    position: relative;
+    margin-top: 200px;
+    text-align: center;
 }
 
 .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px; /* Espaço entre o título e o botão */
+    margin-top: 20px;
 }
 
 .choice-button, .episode-button {
     padding: 15px 30px;
+    margin: 8px;
     font-size: 16px;
     cursor: pointer;
     border: none;
     border-radius: 10px;
-    background-color: #680514; /* Vinho */
-    color: #ffffff; /* Branco */
+    background-color: #680514;
+    color: #ffffff;
     box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
     transition: background-color 0.3s, transform 0.3s;
-    margin: 8px;
 }
 
 .choice-button:hover, .episode-button:hover {
-    background-color: #660606; /* Vermelho escuro */
+    background-color: #660606;
     transform: translateY(-3px);
 }
 
@@ -118,46 +117,46 @@ body {
     50% { border-color: black; }
 }
 
-/* Estilos para telas menores que 768px (tablets e smartphones) */
+/* Ajuste responsivo para telas menores */
 @media (max-width: 768px) {
     .container {
-        width: 95%; /* O container ocupa quase toda a largura da tela */
+        width: 95%;
+        padding: 2rem; /* Reduz o padding em telas menores */
         margin-top: 100px; /* Ajusta o espaço para a barra de navegação */
-        padding: 40px; /* Reduz o padding para telas menores */
     }
 
     .navigation {
-        width: calc(100% - 20px); /* Ajusta a largura em telas menores */
-        margin: 0 10px; /* Ajusta a margem em telas menores */
-        top: 20px; /* Menor distância do topo */
+        width: calc(100% - 20px);
+        margin: 0 10px;
     }
 
-    .navigation ul {
-        flex-direction: column; /* Navegação em coluna em telas menores */
-        align-items: center;
-    }
-
-    .navigation ul li {
-        margin-bottom: 10px;
-    }
-
-    .navigation ul li:last-child {
-        margin-bottom: 0;
-    }
-}
-
-/* Estilos para telas menores que 480px (smartphones) */
-@media (max-width: 480px) {
-    .container {
-        padding: 30px; /* Mais compacto para telas muito pequenas */
+    .navigation ul li a {
+        font-size: 16px;
+        padding: 5px 10px;
     }
 
     .choice-button, .episode-button {
-        font-size: 14px; /* Botões menores em smartphones */
-        padding: 12px 20px;
+        padding: 10px 20px; /* Reduz o padding dos botões */
+        font-size: 14px; /* Ajusta o tamanho da fonte para telas menores */
     }
+}
 
-    h1 {
-        font-size: 1.5rem; /* Ajusta o tamanho da fonte do título */
-    }
+/* Botões de escolha serão ocultados inicialmente */
+.button-container {
+    display: none; /* Oculta os botões inicialmente */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.choice-button, .episode-button {
+    padding: 15px 30px;
+    margin: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #680514;
+    color: #ffffff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
 }
