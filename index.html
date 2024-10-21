@@ -1,111 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início do Jogo</title>
-    <style>
-        /* Estilo Geral */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-            background-color: #000000; /* Preto */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Contêiner da Animação */
-        #intro-animation {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000000; /* Preto */
-        }
-
-        /* Estilo do Vídeo */
-        #intro-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Botão "Ativar Som" */
-        #sound-button-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #sound-button {
-            padding: 20px 40px;
-            background-color: #800000; /* Vermelho escuro */
-            color: #ffffff; /* Branco */
-            font-size: 24px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.1s;
-        }
-
-        #sound-button:hover {
-            background-color: #a00000; /* Vermelho mais claro */
-        }
-
-        #sound-button:active {
-            transform: scale(0.98);
-        }
-    </style>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <div id="intro-animation">
-        <!-- Vídeo de Animação -->
-        <video id="intro-video" autoplay muted>
-      
 
-            <source src="videos/sos woman.mp4" type="video/mp4">
+    <nav class="navigation">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="episodeo.html">episódios</a></li>
+            <li><a href="">Contato</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1>Bem-vindo ao Jogo SOS WOMAN</h1>
+        <button id="start-button" class="choice-button">Iniciar Jogo (Espaço)</button>
+        
+        <!-- Adicionando o elemento de vídeo -->
+        <video id="game-video" width="600" height="400" controls style="display: none;">
+            <source src="sos woman.mp4" type="video/mp4">
             Seu navegador não suporta o elemento de vídeo.
         </video>
     </div>
-    
-    <div id="sound-button-container">
-        <button id="sound-button">Ativar Som</button>
-    </div>
-    
+
+    <!-- Adiciona o elemento de áudio -->
+    <audio id="instruction-audio" src="Text inicio.wav" autoplay></audio>
+
     <script>
-        const video = document.getElementById('intro-video');
-        const soundButtonContainer = document.getElementById('sound-button-container');
-        const soundButton = document.getElementById('sound-button');
+        document.addEventListener('DOMContentLoaded', () => {
+            const startButton = document.getElementById('start-button');
+            const instructionAudio = document.getElementById('instruction-audio');
+            const gameVideo = document.getElementById('game-video');
 
-        // Reproduzir o vídeo com som após a interação do usuário
-        soundButton.addEventListener('click', function () {
-            video.muted = false;  // Desativa o mute do vídeo
-            video.play();  // Reproduz o vídeo
-            soundButtonContainer.style.display = 'none';  // Oculta o botão após a interação
-        });
+            function startGame() {
+                // Esconde o botão e o áudio
+                startButton.style.display = 'none';
+                instructionAudio.pause();
+                
+                // Mostra e começa a reprodução do vídeo
+                gameVideo.style.display = 'block';
+                gameVideo.play();
+            }
 
-        // Garante que o vídeo seja reproduzido após a interação inicial
-        video.addEventListener('canplay', function () {
-            // Verifica se o vídeo pode ser reproduzido
-            console.log("O vídeo está pronto para reproduzir.");
-        });
+            startButton.addEventListener('click', startGame);
 
-        // Redirecionar para a próxima página após o vídeo terminar
-        video.addEventListener('ended', function () {
-            window.location.href = 'episodeo.html';
+            document.addEventListener('keydown', (event) => {
+                if (event.key === ' ') {
+                    startGame();
+                }
+            });
+
+            // Repete o áudio quando terminar
+            instructionAudio.addEventListener('ended', () => {
+                instructionAudio.currentTime = 0; // Reinicia o áudio
+                instructionAudio.play(); // Reproduz o áudio novamente
+            });
         });
     </script>
 </body>
 </html>
+
